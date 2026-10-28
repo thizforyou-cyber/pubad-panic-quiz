@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#111024"><meta name="description" content="A fun UGC NET Public Administration quiz app with PYQ practice, hints, explanations, streaks and game mode.">
+<title>PubAd Panic! — UGC NET Quiz Arena</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="brand"><div class="brand-mark">PA!</div><div><b>PubAd Panic!</b><small>UGC NET • PAPER 2</small></div></div>
+    <div class="side-label">YOUR ARENA</div>
+    <button class="nav active" data-view="home">🏠 <span>Dashboard</span></button>
+    <button class="nav" data-view="practice">🎯 <span>Question Rush</span></button>
+    <button class="nav" data-view="learn">🧠 <span>Learn from Mistakes</span></button>
+    <button class="nav" data-view="arcade">🎮 <span>Chaos Arcade</span><span class="pill">FUN</span></button>
+    <div class="side-spacer"></div>
+    <div class="side-mascot"><div class="mascot">🤓</div><b>Professor Panic</b><p>“One more question. Your syllabus won't revise itself.”</p></div>
+    <div class="sidebar-foot">Built for curious brains, not boring cramming.</div>
+  </aside>
+  <main class="main">
+    <header class="topbar"><div><div class="eyebrow" id="dateLine">YOUR STUDY ZONE</div><h1 id="pageTitle">Welcome to the arena.</h1></div><div class="top-stats"><div class="stat"><span>⚡ XP</span><b id="xpTop">0</b></div><div class="stat"><span>🔥 STREAK</span><b id="streakTop">0</b></div></div></header>
+    <section id="homeView" class="view">
+      <div class="hero"><div class="hero-copy"><span class="tag">THE EXAM ISN'T READY FOR YOU</span><h2>Study smart.<br><em>Laugh occasionally.</em></h2><p>90 questions from your uploaded June 2026 document are loaded in the app. Hints, answer feedback and game modes are ready from the start.</p><button class="btn btn-light" id="startBtn">Let's cook 🔥 <span>→</span></button></div><div class="hero-art"><div class="orbit orbit1"></div><div class="orbit orbit2"></div><div class="big-emoji">🧠</div><div class="float f1">+10 XP</div><div class="float f2">NO BORING MODE</div><div class="float f3">💥</div></div></div>
+      <div class="section-head"><div><div class="eyebrow">PICK YOUR POWER-UP</div><h2>Choose your mission</h2></div><span class="muted">Your notes, but with a pulse.</span></div>
+      <div class="mission-grid">
+        <button class="mission" data-go="practice"><div class="mission-icon purple">🎯</div><h3>Question Rush</h3><p>Answer PYQs, unlock hints and get instant feedback.</p><span class="mission-link">Start practicing ↗</span></button>
+        <button class="mission" data-go="learn"><div class="mission-icon yellow">🧩</div><h3>Fix My Brain</h3><p>Review questions you missed and turn mistakes into marks.</p><span class="mission-link">Revise mistakes ↗</span></button>
+        <button class="mission" data-go="arcade"><div class="mission-icon pink">👾</div><h3>Chaos Arcade</h3><p>Quick rounds, speed challenges and ridiculous victory reactions.</p><span class="mission-link">Enter the arcade ↗</span></button>
+      </div>
+      <div class="section-head"><div><div class="eyebrow">YOUR PROGRESS</div><h2>Brain stats</h2></div></div>
+      <div class="progress-grid"><div class="progress-card"><span>Questions in bank</span><b>90</b><small>Q.51–Q.140 from your file</small></div><div class="progress-card"><span>Answered correctly</span><b id="correctStat">0</b><small>Build your confidence</small></div><div class="progress-card"><span>Needs another look</span><b id="mistakeStat">0</b><small>Your personal revision list</small></div><div class="progress-card"><span>Best score</span><b id="bestStat">0%</b><small>Beat your own record</small></div></div>
+      <div class="notice">📚 <b>Source note:</b> Answers are loaded from the answer key in your uploaded document. The app labels these as “document key” so you can separately verify any suspected source errors.</div>
+    </section>
+    <section id="practiceView" class="view hidden">
+      <div class="toolbar"><div class="filters"><label for="categorySelect">TOPIC</label><select id="categorySelect"><option value="all">All topics</option></select><label for="modeSelect">MODE</label><select id="modeSelect"><option value="normal">Chill practice</option><option value="timed">⏱️ 20-second panic</option><option value="shuffle">Shuffle chaos</option></select></div><button class="btn btn-outline" id="resetRound">↻ New round</button></div>
+      <div class="quiz-layout"><div class="quiz-panel"><div class="question-meta"><span class="tag" id="categoryTag">PUBLIC ADMINISTRATION</span><span id="questionCounter">QUESTION 1 / 90</span></div><div class="quiz-progress"><span id="quizProgress"></span></div><div class="q-number" id="qNumber">Q.51</div><h2 id="questionText">Loading question…</h2><div id="contextText" class="context"></div><div id="options" class="options"></div><div class="hint-row"><button id="hintBtn" class="text-btn">💡 Give me a hint</button><span id="timer" class="timer hidden">20</span></div><div id="hintBox" class="hint-box hidden"></div><div id="feedbackBox" class="feedback hidden"></div><div class="quiz-actions"><button id="skipBtn" class="btn btn-outline">Skip for now</button><button id="nextBtn" class="btn btn-primary hidden">Next question →</button></div></div>
+        <aside class="coach-panel"><div class="coach-top"><span class="coach-face" id="coachFace">😎</span><div><b id="coachName">Professor Panic</b><small id="coachMood">Ready to cause academic chaos</small></div></div><div class="coach-speech" id="coachSpeech">Choose an answer. I promise to be only mildly dramatic.</div><div class="coach-divider"></div><div class="mini-stat"><span>Round score</span><b id="roundScore">0</b></div><div class="mini-stat"><span>Correct streak</span><b id="roundStreak">0 🔥</b></div><div class="coach-tip"><b>PRO TIP</b><p>Use the hint before guessing. Your future self says thanks.</p></div><button class="btn btn-dark full" data-go="learn">Review mistakes →</button></aside></div>
+    </section>
+    <section id="learnView" class="view hidden"><div class="section-head"><div><div class="eyebrow">NO SHAME ZONE</div><h2>Every mistake is a clue.</h2><p class="muted">Revisit your missed questions and remember the answer from your uploaded document.</p></div><button class="btn btn-outline" id="clearMistakes">Clear revision list</button></div><div id="mistakeList" class="mistake-list"></div></section>
+    <section id="arcadeView" class="view hidden"><div class="arcade-hero"><div><span class="tag">WARNING: MAY CAUSE CONFIDENCE</span><h2>CHAOS<br><em>ARCADE</em></h2><p>Fast rounds. Silly reactions. Real revision. Choose a challenge and let the neurons fight.</p><button class="btn btn-light" id="arcadeStart">START THE MADNESS ⚡</button></div><div class="arcade-mascot">👾<span>GIVE ME YOUR BEST GUESS</span></div></div><div class="arcade-grid"><div class="arcade-card"><span>⏱️</span><h3>Panic Sprint</h3><p>Answer with a 20-second timer. Speed earns bragging rights.</p><button class="btn btn-primary arcadeMode" data-mode="timed">Play sprint</button></div><div class="arcade-card"><span>🎲</span><h3>Chaos Shuffle</h3><p>Questions arrive in random order. Your comfort zone has left the chat.</p><button class="btn btn-primary arcadeMode" data-mode="shuffle">Shuffle it</button></div><div class="arcade-card"><span>🧯</span><h3>Wrong Answer Rehab</h3><p>Turn those “I knew this!” moments into actual knowledge.</p><button class="btn btn-primary" data-go="learn">Fix my mistakes</button></div></div><div class="reaction-card"><div id="bigReaction">🫡</div><div><b id="reactionTitle">Your brain has entered the arena.</b><p id="reactionText">Get one right and Professor Panic might finally respect you.</p></div></div></section>
+    <footer>PubAd Panic! · Personal study project · Source: uploaded “2026 JUNE” question bank</footer>
+  </main>
+</div>
+<script src="questions.js"></script><script src="app.js"></script>
+</body></html>
